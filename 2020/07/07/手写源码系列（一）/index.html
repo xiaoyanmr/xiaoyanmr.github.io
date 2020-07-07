@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | xiaoyan</title>
+  <title>手写源码系列（一·数组） | xiaoyan</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="JS数组去重普通项 1234567891011121314151617181920212223let arr &#x3D; [1, 2, 3, 2, 33, 55, 66, 3, 55];&#x2F;&#x2F;第一种方法：let newArr &#x3D; [];arr.forEach(item &#x3D;&gt; &amp;#123;	if(newArr.indexOf(item) &#x3D;&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/07/05/hello-world/index.html">
+<meta property="og:title" content="手写源码系列（一·数组）">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="xiaoyan">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="JS数组去重普通项 1234567891011121314151617181920212223let arr &#x3D; [1, 2, 3, 2, 33, 55, 66, 3, 55];&#x2F;&#x2F;第一种方法：let newArr &#x3D; [];arr.forEach(item &#x3D;&gt; &amp;#123;	if(newArr.indexOf(item) &#x3D;&amp;#">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-05T04:13:19.000Z">
-<meta property="article:modified_time" content="2020-07-05T04:13:25.573Z">
+<meta property="article:published_time" content="2020-07-07T02:03:50.000Z">
+<meta property="article:modified_time" content="2020-07-07T03:43:22.081Z">
 <meta property="article:author" content="Mr Yan">
+<meta property="article:tag" content="前端基础点">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="xiaoyan" type="application/atom+xml">
@@ -194,14 +196,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-手写源码系列（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      手写源码系列（一·数组）
     </h1>
   
 
@@ -213,8 +215,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/05/hello-world/" class="archive-article-date">
-        <time datetime="2020-07-05T04:13:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+<a href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+        <time datetime="2020-07-07T02:03:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
 
   
@@ -227,7 +229,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">73字</span>
+      <span class="post-count">419字</span>
     </span>
   </span>
 
@@ -236,7 +238,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -247,20 +249,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    <h2 id="JS数组"><a href="#JS数组" class="headerlink" title="JS数组"></a>JS数组</h2><h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p>普通项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1, 2, 3, 2, 33, 55, 66, 3, 55];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第一种方法：</span><br><span class="line">let newArr &#x3D; [];</span><br><span class="line">arr.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">	if(newArr.indexOf(item) &#x3D;&#x3D; &#39;-1&#39;)&#123;</span><br><span class="line">		newArr.push(item);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">console.log(newArr);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二种方法：</span><br><span class="line">function unique(arr) &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&#39;type error!&#39;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    return [...new Set(arr)]</span><br><span class="line">&#125;</span><br><span class="line">unique(arr);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Array.from()、filter()、for()等方法都可以完成上面数组去重。</span><br><span class="line">&#x2F;&#x2F;Array.from(new Set(arr)) &#x3D;&#x3D; [...new Set(arr)] Array.from方法可以将Set结构转换为数组结果</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>对象项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; [</span><br><span class="line">    &#123;id: 1, name: &#39;汤小梦&#39;&#125;,</span><br><span class="line">    &#123;id: 2, name: &#39;石小明&#39;&#125;,</span><br><span class="line">    &#123;id: 3, name: &#39;前端开发&#39;&#125;,</span><br><span class="line">    &#123;id: 1, name: &#39;web前端&#39;&#125;</span><br><span class="line">];</span><br><span class="line">&#x2F;&#x2F;实现方法：</span><br><span class="line">const unique &#x3D; (arr, key) &#x3D;&gt; &#123;</span><br><span class="line">    return [...new Map(arr.map(item &#x3D;&gt; [item[key], item])).values()]</span><br><span class="line">&#125;</span><br><span class="line">console.log(unique(arr1, &#39;id&#39;));</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let arr3 &#x3D; [&#39;a&#39;, &#39;b&#39;]</span><br><span class="line">let arr4 &#x3D; [&#39;c&#39;, &#39;d&#39;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：ES5</span><br><span class="line">let arr5 &#x3D; arr3.concat(arr4);</span><br><span class="line">console.log(arr5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：ES6</span><br><span class="line">let arr6 &#x3D; [...arr3, ...arr4];</span><br><span class="line">console.log(arr6);</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="展平"><a href="#展平" class="headerlink" title="展平"></a>展平</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let arr7 &#x3D; [1, 2, [3, 4], [5, 6, [7, 8, 9]]];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：</span><br><span class="line">let arrNew &#x3D; arr7.flat(Infinity);</span><br><span class="line">console.log(arrNew);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：</span><br><span class="line">let arrNew &#x3D; arr7.join().split(&#39;,&#39;).map(Number);</span><br><span class="line">console.log(arrNew);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法三：</span><br><span class="line">let arrNew &#x3D; arr7.toString().split(&#39;,&#39;).map(Number);</span><br><span class="line">console.log(arrNew);</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<h3 id="是否为数组"><a href="#是否为数组" class="headerlink" title="是否为数组"></a>是否为数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; []</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：instanceof</span><br><span class="line">console.log(arr instanceof Array);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：constructor</span><br><span class="line">console.log(arr.constructor &#x3D;&#x3D;&#x3D; Array);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法三:判断对象是否有 push 等数组的一些方法</span><br><span class="line">console.log(!!arr.push &amp;&amp; !!arr.concat);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第四种：toString</span><br><span class="line">console.log(Object.prototype.toString.call(arr) &#x3D;&#x3D;&#x3D; &#39;[object Array]&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第五种：Array.isArray（最优解）</span><br><span class="line">console.log(Array.isArray(arr));</span><br></pre></td></tr></table></figure>
     
 
     
@@ -274,7 +273,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/07/05/hello-world/" title="Hello World" target="_blank">http://yoursite.com/2020/07/05/hello-world/</a>
+          <a href="http://yoursite.com/2020/07/07/手写源码系列（一）/" title="手写源码系列（一·数组）" target="_blank">http://yoursite.com/2020/07/07/手写源码系列（一）/</a>
         </li>
         
         <li>
@@ -291,6 +290,21 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -341,7 +355,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/05/hello-world/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -356,15 +370,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript中的垃圾回收和内存泄漏
-        
-      </div>
-    </a>
   
+    <a href="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript中的垃圾回收和内存泄漏</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -526,6 +536,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">前端基础点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

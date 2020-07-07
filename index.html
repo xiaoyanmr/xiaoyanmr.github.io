@@ -197,6 +197,105 @@
             
 
   
+    <article id="post-手写源码系列（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank">手写源码系列（一·数组）</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+        <time datetime="2020-07-07T02:03:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="JS数组"><a href="#JS数组" class="headerlink" title="JS数组"></a>JS数组</h2><h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p>普通项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1, 2, 3, 2, 33, 55, 66, 3, 55];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第一种方法：</span><br><span class="line">let newArr &#x3D; [];</span><br><span class="line">arr.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">	if(newArr.indexOf(item) &#x3D;&#x3D; &#39;-1&#39;)&#123;</span><br><span class="line">		newArr.push(item);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">console.log(newArr);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二种方法：</span><br><span class="line">function unique(arr) &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&#39;type error!&#39;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    return [...new Set(arr)]</span><br><span class="line">&#125;</span><br><span class="line">unique(arr);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Array.from()、filter()、for()等方法都可以完成上面数组去重。</span><br><span class="line">&#x2F;&#x2F;Array.from(new Set(arr)) &#x3D;&#x3D; [...new Set(arr)] Array.from方法可以将Set结构转换为数组结果</span><br></pre></td></tr></table></figure>
+
+<p>对象项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; [</span><br><span class="line">    &#123;id: 1, name: &#39;汤小梦&#39;&#125;,</span><br><span class="line">    &#123;id: 2, name: &#39;石小明&#39;&#125;,</span><br><span class="line">    &#123;id: 3, name: &#39;前端开发&#39;&#125;,</span><br><span class="line">    &#123;id: 1, name: &#39;web前端&#39;&#125;</span><br><span class="line">];</span><br><span class="line">&#x2F;&#x2F;实现方法：</span><br><span class="line">const unique &#x3D; (arr, key) &#x3D;&gt; &#123;</span><br><span class="line">    return [...new Map(arr.map(item &#x3D;&gt; [item[key], item])).values()]</span><br><span class="line">&#125;</span><br><span class="line">console.log(unique(arr1, &#39;id&#39;));</span><br></pre></td></tr></table></figure>
+
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let arr3 &#x3D; [&#39;a&#39;, &#39;b&#39;]</span><br><span class="line">let arr4 &#x3D; [&#39;c&#39;, &#39;d&#39;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：ES5</span><br><span class="line">let arr5 &#x3D; arr3.concat(arr4);</span><br><span class="line">console.log(arr5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：ES6</span><br><span class="line">let arr6 &#x3D; [...arr3, ...arr4];</span><br><span class="line">console.log(arr6);</span><br></pre></td></tr></table></figure>
+
+<h3 id="展平"><a href="#展平" class="headerlink" title="展平"></a>展平</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let arr7 &#x3D; [1, 2, [3, 4], [5, 6, [7, 8, 9]]];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：</span><br><span class="line">let arrNew &#x3D; arr7.flat(Infinity);</span><br><span class="line">console.log(arrNew);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：</span><br><span class="line">let arrNew &#x3D; arr7.join().split(&#39;,&#39;).map(Number);</span><br><span class="line">console.log(arrNew);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法三：</span><br><span class="line">let arrNew &#x3D; arr7.toString().split(&#39;,&#39;).map(Number);</span><br><span class="line">console.log(arrNew);</span><br></pre></td></tr></table></figure>
+
+<h3 id="是否为数组"><a href="#是否为数组" class="headerlink" title="是否为数组"></a>是否为数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; []</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：instanceof</span><br><span class="line">console.log(arr instanceof Array);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：constructor</span><br><span class="line">console.log(arr.constructor &#x3D;&#x3D;&#x3D; Array);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法三:判断对象是否有 push 等数组的一些方法</span><br><span class="line">console.log(!!arr.push &amp;&amp; !!arr.concat);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第四种：toString</span><br><span class="line">console.log(Object.prototype.toString.call(arr) &#x3D;&#x3D;&#x3D; &#39;[object Array]&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第五种：Array.isArray（最优解）</span><br><span class="line">console.log(Array.isArray(arr));</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JavaScript中的垃圾回收和内存泄漏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -321,93 +420,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/05/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/05/hello-world/" class="archive-article-date">
-        <time datetime="2020-07-05T04:13:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/05/hello-world/">展开全文 >></a>
     </p>
     
 
@@ -568,6 +580,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">前端基础点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

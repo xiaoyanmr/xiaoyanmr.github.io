@@ -191,6 +191,131 @@
             
 
   
+    <article id="post-对象的深拷贝与浅拷贝的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_blank">对象的深拷贝与浅拷贝的区别</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+        <time datetime="2020-07-21T01:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h3><p>1.<b>基本类型值</b> 基本类型值指的是存储在栈中的一些简单的数据段<br>在JavaScript中的基本引用类型有String,Number,Undefined,Null,Boolean,Symbol 一共6种<br>基本类型是按值访问的，从一个变量复制基本类型的值到另一个变量后这2个变量的值是完全独立的，<br>即使一个变量改变了也不会影响到第二个变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;案例1</span><br><span class="line">var num1 &#x3D; 1, num2 &#x3D; num1;</span><br><span class="line">console.log(num1) &#x2F;&#x2F;1</span><br><span class="line">console.log(num2) &#x2F;&#x2F;1</span><br><span class="line"></span><br><span class="line">num2 &#x3D; 2; &#x2F;&#x2F;修改num2</span><br><span class="line">console.log(num1) &#x2F;&#x2F;1</span><br><span class="line">console.log(num2) &#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<p>2.<b>基本类型值</b>引用类型值是引用类型的实例，它是保存在堆内存中的一个对象<br>引用类型是一种数据结构，最常用的是Object,Array,Function类型，另外还有Date,RegExp,Error等，<br>sES6同样也提供了Set,Map2种新的数据结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;案例2</span><br><span class="line">var obj1 &#x3D; &#123;x: 1, y: 2&#125;, obj2 &#x3D; obj1;</span><br><span class="line">console.log(obj1) &#x2F;&#x2F;&#123;x: 1, y: 2&#125;</span><br><span class="line">console.log(obj2) &#x2F;&#x2F;&#123;x: 1, y: 2&#125;</span><br><span class="line"></span><br><span class="line">obj2.x &#x3D; 2; &#x2F;&#x2F;修改obj2.x</span><br><span class="line">console.log(obj1) &#x2F;&#x2F;&#123;x: 2, y: 2&#125;</span><br><span class="line">console.log(obj2) &#x2F;&#x2F;&#123;x: 2, y: 2&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><p>一.浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址<br>浅复制：仅仅是指向被复制的内存地址，如果原地址发生改变，那么浅复制出来的对象也会相应的改变。<br>以下是一些JavaScript提供的浅拷贝方法</p>
+<h4 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign"></a>1.Object.assign</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arrNew &#x3D; &#123;&#125;;</span><br><span class="line">let arr &#x3D; &#123; a: &#123; b: 2 &#125;, c:3&#125;;</span><br><span class="line">Object.assign(arrNew, arr);</span><br><span class="line">console.log(arrNew); &#x2F;&#x2F; &#123; a: &#123; b: 2 &#125;, c:3 &#125;;</span><br><span class="line">&#x2F;&#x2F;注意Object.assign()只能实现一维对象的拷贝</span><br><span class="line">arrNew.a.b &#x3D; 3;</span><br><span class="line">console(arr);</span><br></pre></td></tr></table></figure>
+<p>Object.assign还有一些注意的点是:</p>
+<ul>
+<li>不会拷贝对象继承的属性</li>
+<li>不可枚举的属性</li>
+<li>属性的数据属性/访问器属性</li>
+<li>可以拷贝Symbol类型</li>
+</ul>
+
+<h4 id="2-扩展运算符"><a href="#2-扩展运算符" class="headerlink" title="2.扩展运算符"></a>2.扩展运算符</h4><p>利用扩展运算符可以在构造字面量对象时,进行克隆或者属性拷贝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;语法：let cloneObj &#x3D; &#123; ...obj &#125;;</span><br><span class="line">let obj &#x3D; &#123;a:1,b:&#123;c:1&#125;&#125;</span><br><span class="line">let obj2 &#x3D; &#123;...obj&#125;;</span><br><span class="line">obj.a&#x3D;2;</span><br><span class="line">console.log(obj); &#x2F;&#x2F;&#123;a:2,b:&#123;c:1&#125;&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:&#123;c:1&#125;&#125;</span><br><span class="line">&#x2F;&#x2F;注意扩展运算符，只能实现一维对象的拷贝</span><br><span class="line">obj.b.c &#x3D; 2;</span><br><span class="line">console.log(obj); &#x2F;&#x2F;&#123;a:2,b:&#123;c:2&#125;&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:&#123;c:2&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Array-prototype-slice"><a href="#3-Array-prototype-slice" class="headerlink" title="3.Array.prototype.slice"></a>3.Array.prototype.slice</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr1 &#x3D; [1, 2, [3, 4]], arr2 &#x3D; arr1.slice();</span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1, 2, [3, 4]]</span><br><span class="line">console.log(arr2); &#x2F;&#x2F;[1, 2, [3, 4]]</span><br><span class="line"></span><br><span class="line">arr2[2][1] &#x3D; 5; </span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1, 2, [3, 5]]</span><br><span class="line">console.log(arr2); &#x2F;&#x2F;[1, 2, [3, 5]]</span><br></pre></td></tr></table></figure>
+<p>arr2又改变了arr1，看来slice()只能实现一维数组的深拷贝。<br>具备同等特性的还有：concat、Array.from() 。</p>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>二.深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存，<br>深复制：在计算机中开辟一块新的内存地址用于存放复制的对象。<br>以下是一些JavaScript提供的深拷贝方法</p>
+<h4 id="简单的深拷贝"><a href="#简单的深拷贝" class="headerlink" title="简单的深拷贝"></a>简单的深拷贝</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let obj1 &#x3D; &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    c: 1</span><br><span class="line">&#125;;</span><br><span class="line">let obj2 &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj2.a &#x3D; &#123;&#125;</span><br><span class="line">obj2.c &#x3D; obj1.c</span><br><span class="line">obj2.a.b &#x3D; obj1.a.b;</span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;a:&#123;b:1&#125;,c:1&#125;;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:&#123;b:1&#125;,c:1&#125;;</span><br><span class="line">obj1.a.b &#x3D; 2;</span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;a:&#123;b:2&#125;,c:1&#125;;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:&#123;b:1&#125;,c:1&#125;;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，我们新建了一个obj2对象,同时根据obj1对象的a属性是一个引用类型,我们给obj2.a的值也新建一个新对象(即在内存中新开辟了一块内存地址),然后把obj1.a.b属性的值数字1复制给obj2.a.b，因为数字1是基本类型的值，所以改变obj1.a.b的值后，obj2.a不会收到影响，因为他们的引用是完全2个独立的对象,这就完成了一个简单的深拷贝</p>
+<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify"></a>JSON.stringify</h4><p>JSON.stringify()是目前前端开发过程中最常用的深拷贝方式，原理是把一个对象序列化成为一个JSON字符串，将对象的内容转换成字符串的形式再保存在磁盘上，再用JSON.parse()反序列化将JSON字符串变成一个新的对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let obj1 &#x3D; &#123;</span><br><span class="line">    a:1,</span><br><span class="line">    b:[1,2,3]</span><br><span class="line">&#125;</span><br><span class="line">let str &#x3D; JSON.stringify(obj1)</span><br><span class="line">let obj2 &#x3D; JSON.parse(str)</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:[1,2,3]&#125;</span><br><span class="line">obj1.a &#x3D; 2</span><br><span class="line">obj1.b.push(4);</span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;a:2,b:[1,2,3,4]&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:[1,2,3]&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="通过JSON-stringify实现深拷贝有几点要注意"><a href="#通过JSON-stringify实现深拷贝有几点要注意" class="headerlink" title="通过JSON.stringify实现深拷贝有几点要注意"></a>通过JSON.stringify实现深拷贝有几点要注意</h5><ul>
+<li>拷贝的对象的值中如果有函数,undefined,symbol则经过JSON.stringify()序列化后的JSON字符串中这个键值对会消失</li>
+<li>无法拷贝不可枚举的属性，无法拷贝对象的原型链</li>
+<li>拷贝Date引用类型会变成字符串</li>
+<li>拷贝RegExp引用类型会变成空对象</li>
+<li>对象中含有NaN、Infinity和-Infinity，则序列化的结果会变成null</li>
+<li>无法拷贝对象的循环应用(即obj[key] = obj)</li>
+</ul>
+
+<h4 id="使用第三方库实现对象的深拷贝"><a href="#使用第三方库实现对象的深拷贝" class="headerlink" title="使用第三方库实现对象的深拷贝"></a>使用第三方库实现对象的深拷贝</h4><p>1.lodash<br>2.jQuery的$.extend</p>
+<h4 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy(obj) &#123;</span><br><span class="line">    &#x2F;&#x2F; 创建一个新对象</span><br><span class="line">    let result &#x3D; &#123;&#125;</span><br><span class="line">    let keys &#x3D; Object.keys(obj),</span><br><span class="line">        key &#x3D; null,</span><br><span class="line">        temp &#x3D; null;</span><br><span class="line"></span><br><span class="line">    for (let i &#x3D; 0; i &lt; keys.length; i++) &#123;</span><br><span class="line">        key &#x3D; keys[i];    </span><br><span class="line">       &#x2F;&#x2F; Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，</span><br><span class="line">       &#x2F;&#x2F;数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致 。</span><br><span class="line">        temp &#x3D; obj[key];</span><br><span class="line">        &#x2F;&#x2F; 如果字段的值也是一个对象则递归操作</span><br><span class="line">        if (temp &amp;&amp; typeof temp &#x3D;&#x3D;&#x3D; &#39;object&#39;) &#123;</span><br><span class="line">            result[key] &#x3D; deepCopy(temp);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; 否则直接赋值给新对象</span><br><span class="line">            result[key] &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 &#x3D; &#123;</span><br><span class="line">    x: &#123;</span><br><span class="line">        m: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    y: undefined,</span><br><span class="line">    z: function add(z1, z2) &#123;</span><br><span class="line">        return z1 + z2</span><br><span class="line">    &#125;,</span><br><span class="line">    a: Symbol(&quot;foo&quot;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var obj2 &#x3D; deepCopy(obj1);</span><br><span class="line">obj2.x.m &#x3D; 2;</span><br><span class="line"></span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;x: &#123;m: 1&#125;, y: undefined, z: ƒ, a: Symbol(foo)&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;x: &#123;m: 2&#125;, y: undefined, z: ƒ, a: Symbol(foo)&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="借鉴一部分源码地址：https-juejin-im-post-5c26dd8fe51d4570c053e08b-heading-11"><a href="#借鉴一部分源码地址：https-juejin-im-post-5c26dd8fe51d4570c053e08b-heading-11" class="headerlink" title="借鉴一部分源码地址：https://juejin.im/post/5c26dd8fe51d4570c053e08b#heading-11"></a>借鉴一部分源码地址：<a style="font-size:0.5em;">https://juejin.im/post/5c26dd8fe51d4570c053e08b#heading-11</a></h1>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-谈谈防抖与节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>xiaoyan</title>
+  <title>HTTP协议【详解】 | xiaoyan</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="xiaoyan">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一次完整的HTTP事务流程DNS域名解析&gt;发起TCP三次握手&gt;建立TCP链接后发起http请求&gt;服务器响应http请求，浏览器得到HTML代码&gt;浏览器解析HTML代码，并请求HTML代码中的资源&gt;浏览器对页面进行渲染呈现给用户&gt;连接结束 什么是HTTP无状态协议，如何解决HTTP无状态协议？无状态协议对于事物处理没有记忆能力，缺少状态意味着如果后续处理需要前面的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP协议【详解】">
+<meta property="og:url" content="http://yoursite.com/2020/07/26/HTTP%E5%8D%8F%E8%AE%AE%E3%80%90%E8%AF%A6%E8%A7%A3%E3%80%91/index.html">
 <meta property="og:site_name" content="xiaoyan">
+<meta property="og:description" content="一次完整的HTTP事务流程DNS域名解析&gt;发起TCP三次握手&gt;建立TCP链接后发起http请求&gt;服务器响应http请求，浏览器得到HTML代码&gt;浏览器解析HTML代码，并请求HTML代码中的资源&gt;浏览器对页面进行渲染呈现给用户&gt;连接结束 什么是HTTP无状态协议，如何解决HTTP无状态协议？无状态协议对于事物处理没有记忆能力，缺少状态意味着如果后续处理需要前面的">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-26T00:28:59.000Z">
+<meta property="article:modified_time" content="2020-07-26T03:21:38.672Z">
 <meta property="article:author" content="Mr Yan">
+<meta property="article:tag" content="前端基础点">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="xiaoyan" type="application/atom+xml">
@@ -188,25 +190,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-HTTP协议【详解】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-HTTP协议【详解】" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/26/HTTP%E5%8D%8F%E8%AE%AE%E3%80%90%E8%AF%A6%E8%A7%A3%E3%80%91/" target="_blank">HTTP协议【详解】</a>
-  
+    <h1 class="article-title" itemprop="name">
+      HTTP协议【详解】
     </h1>
   
 
 
   
   
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/07/26/HTTP%E5%8D%8F%E8%AE%AE%E3%80%90%E8%AF%A6%E8%A7%A3%E3%80%91/" class="archive-article-date">
         <time datetime="2020-07-26T00:28:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-26</time>
 </a>
@@ -214,6 +216,27 @@
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.6k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">9分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
@@ -243,130 +266,25 @@
     
 
     
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/26/HTTP%E5%8D%8F%E8%AE%AE%E3%80%90%E8%AF%A6%E8%A7%A3%E3%80%91/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Mr Yan
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2020/07/26/HTTP协议【详解】/" title="HTTP协议【详解】" target="_blank">http://yoursite.com/2020/07/26/HTTP协议【详解】/</a>
+        </li>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
         
-        
+      </ul>
     </div>
-</aside>
-
-
-
-
-  
-    <article id="post-对象的深拷贝与浅拷贝的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_blank">对象的深拷贝与浅拷贝的区别</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-        <time datetime="2020-07-21T01:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h3><p>1.<b>基本类型值</b> 基本类型值指的是存储在栈中的一些简单的数据段<br>在JavaScript中的基本引用类型有String,Number,Undefined,Null,Boolean,Symbol 一共6种<br>基本类型是按值访问的，从一个变量复制基本类型的值到另一个变量后这2个变量的值是完全独立的，<br>即使一个变量改变了也不会影响到第二个变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;案例1</span><br><span class="line">var num1 &#x3D; 1, num2 &#x3D; num1;</span><br><span class="line">console.log(num1) &#x2F;&#x2F;1</span><br><span class="line">console.log(num2) &#x2F;&#x2F;1</span><br><span class="line"></span><br><span class="line">num2 &#x3D; 2; &#x2F;&#x2F;修改num2</span><br><span class="line">console.log(num1) &#x2F;&#x2F;1</span><br><span class="line">console.log(num2) &#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
-
-<p>2.<b>基本类型值</b>引用类型值是引用类型的实例，它是保存在堆内存中的一个对象<br>引用类型是一种数据结构，最常用的是Object,Array,Function类型，另外还有Date,RegExp,Error等，<br>sES6同样也提供了Set,Map2种新的数据结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;案例2</span><br><span class="line">var obj1 &#x3D; &#123;x: 1, y: 2&#125;, obj2 &#x3D; obj1;</span><br><span class="line">console.log(obj1) &#x2F;&#x2F;&#123;x: 1, y: 2&#125;</span><br><span class="line">console.log(obj2) &#x2F;&#x2F;&#123;x: 1, y: 2&#125;</span><br><span class="line"></span><br><span class="line">obj2.x &#x3D; 2; &#x2F;&#x2F;修改obj2.x</span><br><span class="line">console.log(obj1) &#x2F;&#x2F;&#123;x: 2, y: 2&#125;</span><br><span class="line">console.log(obj2) &#x2F;&#x2F;&#123;x: 2, y: 2&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><p>一.浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址<br>浅复制：仅仅是指向被复制的内存地址，如果原地址发生改变，那么浅复制出来的对象也会相应的改变。<br>以下是一些JavaScript提供的浅拷贝方法</p>
-<h4 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign"></a>1.Object.assign</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arrNew &#x3D; &#123;&#125;;</span><br><span class="line">let arr &#x3D; &#123; a: &#123; b: 2 &#125;, c:3&#125;;</span><br><span class="line">Object.assign(arrNew, arr);</span><br><span class="line">console.log(arrNew); &#x2F;&#x2F; &#123; a: &#123; b: 2 &#125;, c:3 &#125;;</span><br><span class="line">&#x2F;&#x2F;注意Object.assign()只能实现一维对象的拷贝</span><br><span class="line">arrNew.a.b &#x3D; 3;</span><br><span class="line">console(arr);</span><br></pre></td></tr></table></figure>
-<p>Object.assign还有一些注意的点是:</p>
-<ul>
-<li>不会拷贝对象继承的属性</li>
-<li>不可枚举的属性</li>
-<li>属性的数据属性/访问器属性</li>
-<li>可以拷贝Symbol类型</li>
-</ul>
-
-<h4 id="2-扩展运算符"><a href="#2-扩展运算符" class="headerlink" title="2.扩展运算符"></a>2.扩展运算符</h4><p>利用扩展运算符可以在构造字面量对象时,进行克隆或者属性拷贝</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;语法：let cloneObj &#x3D; &#123; ...obj &#125;;</span><br><span class="line">let obj &#x3D; &#123;a:1,b:&#123;c:1&#125;&#125;</span><br><span class="line">let obj2 &#x3D; &#123;...obj&#125;;</span><br><span class="line">obj.a&#x3D;2;</span><br><span class="line">console.log(obj); &#x2F;&#x2F;&#123;a:2,b:&#123;c:1&#125;&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:&#123;c:1&#125;&#125;</span><br><span class="line">&#x2F;&#x2F;注意扩展运算符，只能实现一维对象的拷贝</span><br><span class="line">obj.b.c &#x3D; 2;</span><br><span class="line">console.log(obj); &#x2F;&#x2F;&#123;a:2,b:&#123;c:2&#125;&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:&#123;c:2&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Array-prototype-slice"><a href="#3-Array-prototype-slice" class="headerlink" title="3.Array.prototype.slice"></a>3.Array.prototype.slice</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr1 &#x3D; [1, 2, [3, 4]], arr2 &#x3D; arr1.slice();</span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1, 2, [3, 4]]</span><br><span class="line">console.log(arr2); &#x2F;&#x2F;[1, 2, [3, 4]]</span><br><span class="line"></span><br><span class="line">arr2[2][1] &#x3D; 5; </span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1, 2, [3, 5]]</span><br><span class="line">console.log(arr2); &#x2F;&#x2F;[1, 2, [3, 5]]</span><br></pre></td></tr></table></figure>
-<p>arr2又改变了arr1，看来slice()只能实现一维数组的深拷贝。<br>具备同等特性的还有：concat、Array.from() 。</p>
-<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>二.深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存，<br>深复制：在计算机中开辟一块新的内存地址用于存放复制的对象。<br>以下是一些JavaScript提供的深拷贝方法</p>
-<h4 id="简单的深拷贝"><a href="#简单的深拷贝" class="headerlink" title="简单的深拷贝"></a>简单的深拷贝</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let obj1 &#x3D; &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    c: 1</span><br><span class="line">&#125;;</span><br><span class="line">let obj2 &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj2.a &#x3D; &#123;&#125;</span><br><span class="line">obj2.c &#x3D; obj1.c</span><br><span class="line">obj2.a.b &#x3D; obj1.a.b;</span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;a:&#123;b:1&#125;,c:1&#125;;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:&#123;b:1&#125;,c:1&#125;;</span><br><span class="line">obj1.a.b &#x3D; 2;</span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;a:&#123;b:2&#125;,c:1&#125;;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:&#123;b:1&#125;,c:1&#125;;</span><br></pre></td></tr></table></figure>
-<p>在上面的代码中，我们新建了一个obj2对象,同时根据obj1对象的a属性是一个引用类型,我们给obj2.a的值也新建一个新对象(即在内存中新开辟了一块内存地址),然后把obj1.a.b属性的值数字1复制给obj2.a.b，因为数字1是基本类型的值，所以改变obj1.a.b的值后，obj2.a不会收到影响，因为他们的引用是完全2个独立的对象,这就完成了一个简单的深拷贝</p>
-<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify"></a>JSON.stringify</h4><p>JSON.stringify()是目前前端开发过程中最常用的深拷贝方式，原理是把一个对象序列化成为一个JSON字符串，将对象的内容转换成字符串的形式再保存在磁盘上，再用JSON.parse()反序列化将JSON字符串变成一个新的对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let obj1 &#x3D; &#123;</span><br><span class="line">    a:1,</span><br><span class="line">    b:[1,2,3]</span><br><span class="line">&#125;</span><br><span class="line">let str &#x3D; JSON.stringify(obj1)</span><br><span class="line">let obj2 &#x3D; JSON.parse(str)</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:[1,2,3]&#125;</span><br><span class="line">obj1.a &#x3D; 2</span><br><span class="line">obj1.b.push(4);</span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;a:2,b:[1,2,3,4]&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;a:1,b:[1,2,3]&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="通过JSON-stringify实现深拷贝有几点要注意"><a href="#通过JSON-stringify实现深拷贝有几点要注意" class="headerlink" title="通过JSON.stringify实现深拷贝有几点要注意"></a>通过JSON.stringify实现深拷贝有几点要注意</h5><ul>
-<li>拷贝的对象的值中如果有函数,undefined,symbol则经过JSON.stringify()序列化后的JSON字符串中这个键值对会消失</li>
-<li>无法拷贝不可枚举的属性，无法拷贝对象的原型链</li>
-<li>拷贝Date引用类型会变成字符串</li>
-<li>拷贝RegExp引用类型会变成空对象</li>
-<li>对象中含有NaN、Infinity和-Infinity，则序列化的结果会变成null</li>
-<li>无法拷贝对象的循环应用(即obj[key] = obj)</li>
-</ul>
-
-<h4 id="使用第三方库实现对象的深拷贝"><a href="#使用第三方库实现对象的深拷贝" class="headerlink" title="使用第三方库实现对象的深拷贝"></a>使用第三方库实现对象的深拷贝</h4><p>1.lodash<br>2.jQuery的$.extend</p>
-<h4 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy(obj) &#123;</span><br><span class="line">    &#x2F;&#x2F; 创建一个新对象</span><br><span class="line">    let result &#x3D; &#123;&#125;</span><br><span class="line">    let keys &#x3D; Object.keys(obj),</span><br><span class="line">        key &#x3D; null,</span><br><span class="line">        temp &#x3D; null;</span><br><span class="line"></span><br><span class="line">    for (let i &#x3D; 0; i &lt; keys.length; i++) &#123;</span><br><span class="line">        key &#x3D; keys[i];    </span><br><span class="line">       &#x2F;&#x2F; Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，</span><br><span class="line">       &#x2F;&#x2F;数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致 。</span><br><span class="line">        temp &#x3D; obj[key];</span><br><span class="line">        &#x2F;&#x2F; 如果字段的值也是一个对象则递归操作</span><br><span class="line">        if (temp &amp;&amp; typeof temp &#x3D;&#x3D;&#x3D; &#39;object&#39;) &#123;</span><br><span class="line">            result[key] &#x3D; deepCopy(temp);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; 否则直接赋值给新对象</span><br><span class="line">            result[key] &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 &#x3D; &#123;</span><br><span class="line">    x: &#123;</span><br><span class="line">        m: 1</span><br><span class="line">    &#125;,</span><br><span class="line">    y: undefined,</span><br><span class="line">    z: function add(z1, z2) &#123;</span><br><span class="line">        return z1 + z2</span><br><span class="line">    &#125;,</span><br><span class="line">    a: Symbol(&quot;foo&quot;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var obj2 &#x3D; deepCopy(obj1);</span><br><span class="line">obj2.x.m &#x3D; 2;</span><br><span class="line"></span><br><span class="line">console.log(obj1); &#x2F;&#x2F;&#123;x: &#123;m: 1&#125;, y: undefined, z: ƒ, a: Symbol(foo)&#125;</span><br><span class="line">console.log(obj2); &#x2F;&#x2F;&#123;x: &#123;m: 2&#125;, y: undefined, z: ƒ, a: Symbol(foo)&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="借鉴一部分源码地址：https-juejin-im-post-5c26dd8fe51d4570c053e08b-heading-11"><a href="#借鉴一部分源码地址：https-juejin-im-post-5c26dd8fe51d4570c053e08b-heading-11" class="headerlink" title="借鉴一部分源码地址：https://juejin.im/post/5c26dd8fe51d4570c053e08b#heading-11"></a>借鉴一部分源码地址：<a style="font-size:0.5em;">https://juejin.im/post/5c26dd8fe51d4570c053e08b#heading-11</a></h1>
-    
-
-    
-
     
 
   </div>
@@ -391,495 +309,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
-    </p>
-    
 
     
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谈谈防抖与节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/19/%E8%B0%88%E8%B0%88%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" target="_blank">谈谈防抖与节流</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/19/%E8%B0%88%E8%B0%88%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" class="archive-article-date">
-        <time datetime="2020-07-19T07:32:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="概念和例子"><a href="#概念和例子" class="headerlink" title="概念和例子"></a>概念和例子</h3><h4 id="函数防抖-debounce"><a href="#函数防抖-debounce" class="headerlink" title="函数防抖(debounce)"></a>函数防抖(debounce)</h4><p>在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fun, delay) &#123;</span><br><span class="line">  var timeout &#x3D; null;</span><br><span class="line">  return function (arguments) &#123;</span><br><span class="line">    let that &#x3D; this</span><br><span class="line">    let _args &#x3D; arguments</span><br><span class="line">    clearTimeout(timeout);</span><br><span class="line">    timeout &#x3D; setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      fun.call(that, _args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="函数节流-throttle"><a href="#函数节流-throttle" class="headerlink" title="函数节流(throttle)"></a>函数节流(throttle)</h4><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fun, delay) &#123;</span><br><span class="line">  let canRun &#x3D; true;</span><br><span class="line">  return function () &#123;</span><br><span class="line">    let that &#x3D; this;</span><br><span class="line">    let _args &#x3D; arguments;</span><br><span class="line">    if (!canRun) return;</span><br><span class="line">    canRun &#x3D; false;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      fun.apply(that, _args);</span><br><span class="line">      canRun &#x3D; true;</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-<h3>总结</h3>
-<ul>
-  <li>函数防抖和函数节流都是防止某一时间频繁触发，但是这两兄弟之间的原理却不一样。</li>
-  <li>函数防抖是某一段时间内只执行一次，而函数节流是间隔时间执行。</li>
-</ul>
-
-<h3>应用场景</h3>
-debounce
-<ul>
-  <li>search搜索联想，用户在不断输入值时，用防抖来节约请求资源。</li>
-  <li>window触发resize的时候，不断的调整浏览器窗口大小会不断的触发这个事件，用防抖来让其只触发一次</li>
-</ul>
-throttle
-<ul>
-  <li>鼠标不断点击触发，mousedown(单位时间内只触发一次)</li>
-  <li>监听滚动事件，比如是否滑到底部自动加载更多，用throttle来判断</li>
-</ul>
-    
-
-    
-
-    
-
+      </div>
+    </span>
   </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/19/%E8%B0%88%E8%B0%88%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数组的遍历方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/16/%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/" target="_blank">数组的遍历方法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/16/%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-07-16T10:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="各种数组遍历的方法"><a href="#各种数组遍历的方法" class="headerlink" title="各种数组遍历的方法"></a>各种数组遍历的方法</h3><h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var demoArr &#x3D; [&#39;Javascript&#39;, &#39;Gulp&#39;, &#39;CSS3&#39;, &#39;Grunt&#39;, &#39;jQuery&#39;, &#39;angular&#39;];</span><br><span class="line">(function() &#123;</span><br><span class="line">     for(var i&#x3D;0, len&#x3D;demoArr.length; i&lt;len; i++) &#123;</span><br><span class="line">         if (i &#x3D;&#x3D; 2) &#123;</span><br><span class="line">              &#x2F;&#x2F; return;   &#x2F;&#x2F; 函数执行被终止</span><br><span class="line">             &#x2F;&#x2F; break;    &#x2F;&#x2F; 循环被终止</span><br><span class="line">            continue; &#x2F;&#x2F; 循环被跳过</span><br><span class="line">         &#125;;</span><br><span class="line">          console.log(&#39;demo1Arr[&#39;+ i +&#39;]:&#39; + demo1Arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>关于for循环，有一下几点需要注意</p>
-<ul>
-<li>for循环中的i在循环结束之后任然存在与作用域中，为了避免影响作用域中的其他变量，使用函数自执行的方式将其隔离起来()();</li>
-<li>避免使用for(var i=0; i&lt;demoArr.length的方式，这样的数组长度每次都被计算，效率低于上面的方式。也可以将变量声明放在for的前面来执行，提高阅读性。</li>
-</ul>
-
-<h4 id="forEach循环"><a href="#forEach循环" class="headerlink" title="forEach循环"></a>forEach循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1,2,3];</span><br><span class="line">arr.forEach((i,index) &#x3D;&gt;&#123;</span><br><span class="line">  console.log(i,index)</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 1 0</span><br><span class="line">&#x2F;&#x2F; 2 1</span><br><span class="line">&#x2F;&#x2F; 3 2</span><br></pre></td></tr></table></figure>
-
-<p>forEach循环，循环数组中每一个元素并采取操作， 没有返回值， 可以不用知道数组长度,他有三个参数，只有第一个是必需的，代表当前下标下的 value。</p>
-<p>另外请注意，forEach 循环在所有元素调用完毕之前是不能停止的，它没有 break 语句，如果你必须要停止，可以尝试 try catch 语句，就是在要强制退出的时候，抛出一个 error 给 catch 捕捉到，然后在 catch 里面 return，这样就能中止循环了，如果你经常用这个方法，最好自定义一个这样的 forEach 函数在你的库里。</p>
-<h4 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a>map方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1,2,3];</span><br><span class="line">let tt &#x3D; arr.map(function(i)&#123;</span><br><span class="line">  console.log(i)</span><br><span class="line">  return i*2;</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F; [2,4,6]</span><br></pre></td></tr></table></figure>
-<p>map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。<br>注意：map 和 forEach 方法都是只能用来遍历数组，不能用来遍历普通对象</p>
-<h4 id="for-in-语句"><a href="#for-in-语句" class="headerlink" title="for-in 语句"></a>for-in 语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    name: &#39;test&#39;,</span><br><span class="line">    color: &#39;red&#39;,</span><br><span class="line">    day: &#39;sunday&#39;,</span><br><span class="line">    number: 5</span><br><span class="line">&#125;</span><br><span class="line">for (var key in obj) &#123;</span><br><span class="line">    console.log(obj[key])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一般会使用for-in来遍历对象的属性的,不过属性需要 enumerable,才能被读取到.<br>for-in 循环只遍历可枚举属性。一般常用来遍历对象，包括非整数类型的名称和继承的那些原型链上面的属性也能被遍历。像 Array和 Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性就不能遍历了.<br>所以最好在循环体内加一个判断，就用 obj[i].hasOwnProperty(i)，这样就避免遍历出太多不需要的属性。</p>
-<h4 id="for-of-语句-ES-6"><a href="#for-of-语句-ES-6" class="headerlink" title="for-of 语句 (ES 6)"></a>for-of 语句 (ES 6)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#123;name:&#39;bb&#39;&#125;,5,&#39;test&#39;]</span><br><span class="line">for (item of arr) &#123;</span><br><span class="line">    console.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>for of 循环是 Es6 中新增的语句，用来替代 for in 和 forEach，它允许你遍历 Arrays（数组）, Strings（字符串）, Maps（映射）, Sets（集合）等可迭代(Iterable data)的数据结构,注意它的兼容性。</p>
-<hr>
-<p>for-of 和 for-in 的区别<br>for-in 语句以原始插入顺序迭代对象的可枚举属性。for-in会把继承链的对象属性都会遍历一遍,所以会更花时间.<br>for-of 语句只遍历可迭代对象的数据。</p>
-<h4 id="filter-方法"><a href="#filter-方法" class="headerlink" title="filter 方法"></a>filter 方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1,2,3];</span><br><span class="line">let tt &#x3D; arr.filter(function(i)&#123;</span><br><span class="line">  return i&gt;1;</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F; [2,3]</span><br></pre></td></tr></table></figure>
-<p>filter 方法是 Array 对象内置方法，它会返回通过过滤的元素，不改变原来的数组。</p>
-<h4 id="reduce-方法"><a href="#reduce-方法" class="headerlink" title="reduce 方法"></a>reduce 方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var array &#x3D; [1, 2, 3, 4];</span><br><span class="line">var s &#x3D; array.reduce(function(previousValue, value, index, array)&#123;</span><br><span class="line">  return previousValue * value;</span><br><span class="line">&#125;,1);</span><br><span class="line">console.log(s); &#x2F;&#x2F; 24</span><br><span class="line">&#x2F;&#x2F; ES6写法更加简洁</span><br><span class="line">array.reduce((p, v) &#x3D;&gt; p * v); &#x2F;&#x2F; 24</span><br></pre></td></tr></table></figure>
-<p>reduce() 方法接收一个方法作为累加器，数组中的每个值(从左至右) 开始合并，最终为一个值。<br>语法：arr.reduce(fn, initialValue)<br>fn 表示在数组每一项上执行的函数，接受四个参数：</p>
-<ul>
-<li>previousValue 上一次调用回调返回的值，或者是提供的初始值</li>
-<li>value 数组中当前被处理元素的值</li>
-<li>index 当前元素在数组中的索引</li>
-<li>array 数组自身</li>
-</ul>
-
-<h4 id="some-方法"><a href="#some-方法" class="headerlink" title="some()方法"></a>some()方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1,2,3];</span><br><span class="line">let tt &#x3D; arr.some(function(i)&#123;</span><br><span class="line">  return i&gt;1;</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-<p>some() 方法用于检测数组中的元素是否满足指定条件（函数提供）,返回 boolean 值，不改变原数组。</p>
-<h4 id="every-方法"><a href="#every-方法" class="headerlink" title="every()方法"></a>every()方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1,2,3];</span><br><span class="line">let tt &#x3D; arr.some(function(i)&#123;</span><br><span class="line">  return i&gt;1;</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F; 检测数组中元素是否都大于1</span><br><span class="line">&#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
-<p>every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供），返回 boolean 值，不改变原数组。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/16/%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-手写源码系列（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank">手写源码系列（一·数组）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-        <time datetime="2020-07-07T02:03:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="JS数组"><a href="#JS数组" class="headerlink" title="JS数组"></a>JS数组</h3><h4 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h4><p>普通项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1, 2, 3, 2, 33, 55, 66, 3, 55];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第一种方法：</span><br><span class="line">let newArr &#x3D; [];</span><br><span class="line">arr.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">	if(newArr.indexOf(item) &#x3D;&#x3D; &#39;-1&#39;)&#123;</span><br><span class="line">		newArr.push(item);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">console.log(newArr);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二种方法：</span><br><span class="line">function unique(arr) &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&#39;type error!&#39;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    return [...new Set(arr)]</span><br><span class="line">&#125;</span><br><span class="line">unique(arr);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Array.from()、filter()、for()等方法都可以完成上面数组去重。</span><br><span class="line">&#x2F;&#x2F;Array.from(new Set(arr)) &#x3D;&#x3D; [...new Set(arr)] Array.from方法可以将Set结构转换为数组结果</span><br></pre></td></tr></table></figure>
-
-<p>对象项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; [</span><br><span class="line">    &#123;id: 1, name: &#39;汤小梦&#39;&#125;,</span><br><span class="line">    &#123;id: 2, name: &#39;石小明&#39;&#125;,</span><br><span class="line">    &#123;id: 3, name: &#39;前端开发&#39;&#125;,</span><br><span class="line">    &#123;id: 1, name: &#39;web前端&#39;&#125;</span><br><span class="line">];</span><br><span class="line">&#x2F;&#x2F;实现方法：</span><br><span class="line">const unique &#x3D; (arr, key) &#x3D;&gt; &#123;</span><br><span class="line">    return [...new Map(arr.map(item &#x3D;&gt; [item[key], item])).values()]</span><br><span class="line">&#125;</span><br><span class="line">console.log(unique(arr1, &#39;id&#39;));</span><br></pre></td></tr></table></figure>
-
-<h4 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let arr3 &#x3D; [&#39;a&#39;, &#39;b&#39;]</span><br><span class="line">let arr4 &#x3D; [&#39;c&#39;, &#39;d&#39;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：ES5</span><br><span class="line">let arr5 &#x3D; arr3.concat(arr4);</span><br><span class="line">console.log(arr5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：ES6</span><br><span class="line">let arr6 &#x3D; [...arr3, ...arr4];</span><br><span class="line">console.log(arr6);</span><br></pre></td></tr></table></figure>
-
-<h4 id="展平"><a href="#展平" class="headerlink" title="展平"></a>展平</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let arr7 &#x3D; [1, 2, [3, 4], [5, 6, [7, 8, 9]]];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：</span><br><span class="line">let arrNew &#x3D; arr7.flat(Infinity);</span><br><span class="line">console.log(arrNew);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：</span><br><span class="line">let arrNew &#x3D; arr7.join().split(&#39;,&#39;).map(Number);</span><br><span class="line">console.log(arrNew);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法三：</span><br><span class="line">let arrNew &#x3D; arr7.toString().split(&#39;,&#39;).map(Number);</span><br><span class="line">console.log(arrNew);</span><br></pre></td></tr></table></figure>
-
-<h4 id="是否为数组"><a href="#是否为数组" class="headerlink" title="是否为数组"></a>是否为数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; []</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法一：instanceof</span><br><span class="line">console.log(arr instanceof Array);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二：constructor</span><br><span class="line">console.log(arr.constructor &#x3D;&#x3D;&#x3D; Array);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法三:判断对象是否有 push 等数组的一些方法</span><br><span class="line">console.log(!!arr.push &amp;&amp; !!arr.concat);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第四种：toString</span><br><span class="line">console.log(Object.prototype.toString.call(arr) &#x3D;&#x3D;&#x3D; &#39;[object Array]&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第五种：Array.isArray（最优解）</span><br><span class="line">console.log(Array.isArray(arr));</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/07/%E6%89%8B%E5%86%99%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript中的垃圾回收和内存泄漏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/" target="_blank">JavaScript中的垃圾回收和内存泄漏</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/" class="archive-article-date">
-        <time datetime="2020-07-05T08:25:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>程序的运行需要内存。只要程序提出要求，操作系统或者运行时就必须供给内存。所谓的内存泄漏简单来说是不再用到的内存，没有及时释放。为了更好避免内存泄漏，我们先介绍Javascript垃圾回收机制。<br>在C与C++等语言中，开发人员可以直接控制内存的申请和回收。但是在Java、C#、JavaScript语言中，变量的内存空间的申请和释放都由程序自己处理，开发人员不需要关心。也就是说Javascript具有自动垃圾回收机制(Garbage Collecation)。</p>
-<h3 id="一、垃圾回收的必要性"><a href="#一、垃圾回收的必要性" class="headerlink" title="一、垃圾回收的必要性"></a>一、垃圾回收的必要性</h3><!-- ![赵霁](aa.png) -->
-<p>由于字符串、对象和数组没有固定大小，所有当他们的大小已知时，才能对他们进行动态的存储分配。JavaScript程序每次创建字符串、数组或对象时，解释器都必须分配内存来存储那个实体。只要像这样动态地分配了内存，最终都要释放这些内存以便他们能够被再用，否则，JavaScript的解释器将会消耗完系统中所有可用的内存，造成系统崩溃。</p>
-<div style>
-<img src="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/aa.png" class title="图片标题">
 </div>
 
-<h3 id="二、垃圾回收机制"><a href="#二、垃圾回收机制" class="headerlink" title="二、垃圾回收机制"></a>二、垃圾回收机制</h3><p>垃圾回收有两种方法：标记清除、引用计数。引用计数不太常用，标记清除较为常用。</p>
-<h4 id="1-标记清除"><a href="#1-标记清除" class="headerlink" title="1.标记清除"></a>1.标记清除</h4><p>这是javascript中最常用的垃圾回收方式。当变量进入执行环境是，就标记这个变量为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到他们。当变量离开环境时，则将其标记为“离开环境”。<br>我们用个例子，解释下这个方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var m = 0,n = 19 // 把 m,n,add() 标记为进入环境。</span><br><span class="line">add(m, n) // 把 a, b, c标记为进入环境。</span><br><span class="line">console.log(n) // a,b,c标记为离开环境，等待垃圾回收。</span><br><span class="line"><span class="keyword">function</span> add(a, b) &#123;</span><br><span class="line">  a++</span><br><span class="line">  var c = a + b</span><br><span class="line">  <span class="built_in">return</span> c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-引用计数"><a href="#2-引用计数" class="headerlink" title="2.引用计数"></a>2.引用计数</h4><p>所谓”引用计数”是指语言引擎有一张”引用表”，保存了内存里面所有的资源（通常是各种值）的引用次数。如果一个值的引用次数是0，就表示这个值不再用到了，因此可以将这块内存释放。<br>但是引用计数有个最大的问题： 循环引用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">func</span></span>() &#123;</span><br><span class="line">    <span class="built_in">let</span> obj1 = &#123;&#125;;</span><br><span class="line">    <span class="built_in">let</span> obj2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    obj1.a = obj2; // obj1 引用 obj2</span><br><span class="line">    obj2.a = obj1; // obj2 引用 obj1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当函数 func 执行结束后，返回值为 undefined，所以整个函数以及内部的变量都应该被回收，但根据引用计数方法，obj1 和 obj2 的引用次数都不为 0，所以他们不会被回收。<br>要解决循环引用的问题，最好是在不使用它们的时候手工将它们设为空。上面的例子可以这么做：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj1 = null;</span><br><span class="line">obj2 = null;</span><br></pre></td></tr></table></figure>
-<h3 id="三、哪些情况会引起内存泄漏？"><a href="#三、哪些情况会引起内存泄漏？" class="headerlink" title="三、哪些情况会引起内存泄漏？"></a>三、哪些情况会引起内存泄漏？</h3><h4 id="1-意外的全局变量"><a href="#1-意外的全局变量" class="headerlink" title="1.意外的全局变量"></a>1.意外的全局变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo(arg) &#123;</span><br><span class="line">    bar = <span class="string">"this is a hidden global variable"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>bar没被声明,会变成一个全局变量,在页面关闭之前不会被释放。<br>另一种意外的全局变量可能由 this 创建:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">    this.variable = <span class="string">"potential accidental global"</span>;</span><br><span class="line">&#125;</span><br><span class="line">// foo 调用自己，this 指向了全局对象（window）</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<p>在 JavaScript 文件头部加上 ‘use strict’，可以避免此类错误发生。启用严格模式解析 JavaScript ，避免意外的全局变量。</p>
-<h4 id="2-被遗忘的计时器或回调函数"><a href="#2-被遗忘的计时器或回调函数" class="headerlink" title="2.被遗忘的计时器或回调函数"></a>2.被遗忘的计时器或回调函数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var someResource = getData();</span><br><span class="line">setInterval(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    var node = document.getElementById(<span class="string">'Node'</span>);</span><br><span class="line">    <span class="keyword">if</span>(node) &#123;</span><br><span class="line">        // 处理 node 和 someResource</span><br><span class="line">        node.innerHTML = JSON.stringify(someResource));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
-<p>这样的代码很常见，如果id为Node的元素从DOM中移除，该定时器仍会存在，同时，因为回调函数中包含对someResource的引用，定时器外面的someResource也不会被释放。</p>
-<h4 id="3-闭包"><a href="#3-闭包" class="headerlink" title="3.闭包"></a>3.闭包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">bindEvent</span></span>()&#123;</span><br><span class="line">  var obj=document.createElement(<span class="string">'xxx'</span>)</span><br><span class="line">  obj.onclick=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    // Even <span class="keyword">if</span> it is a empty <span class="keyword">function</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>闭包可以维持函数内局部变量，使其得不到释放。上例定义事件回调时，由于是函数内定义函数，并且内部函数–事件回调引用外部函数，形成了闭包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 将事件处理函数定义在外面</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">bindEvent</span></span>() &#123;</span><br><span class="line">  var obj = document.createElement(<span class="string">'xxx'</span>)</span><br><span class="line">  obj.onclick = onclickHandler</span><br><span class="line">&#125;</span><br><span class="line">// 或者在定义事件处理函数的外部函数中，删除对dom的引用</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">bindEvent</span></span>() &#123;</span><br><span class="line">  var obj = document.createElement(<span class="string">'xxx'</span>)</span><br><span class="line">  obj.onclick = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    // Even <span class="keyword">if</span> it is a empty <span class="keyword">function</span></span><br><span class="line">  &#125;</span><br><span class="line">  obj = null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解决之道，将事件处理函数定义在外部，解除闭包，或者在定义事件处理函数的外部函数中，删除对dom的引用。</p>
-<h4 id="4-没有清理的DOM元素引用"><a href="#4-没有清理的DOM元素引用" class="headerlink" title="4.没有清理的DOM元素引用"></a>4.没有清理的DOM元素引用</h4><p>有时，保存 DOM 节点内部数据结构很有用。假如你想快速更新表格的几行内容，把每一行 DOM 存成字典（JSON 键值对）或者数组很有意义。此时，同样的 DOM 元素存在两个引用：一个在 DOM 树中，另一个在字典中。将来你决定删除这些行时，需要把两个引用都清除。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var elements = &#123;</span><br><span class="line">    button: document.getElementById(<span class="string">'button'</span>),</span><br><span class="line">    image: document.getElementById(<span class="string">'image'</span>),</span><br><span class="line">    text: document.getElementById(<span class="string">'text'</span>)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">doStuff</span></span>() &#123;</span><br><span class="line">    image.src = <span class="string">'http://some.url/image'</span>;</span><br><span class="line">    button.click();</span><br><span class="line">    console.log(text.innerHTML);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">removeButton</span></span>() &#123;</span><br><span class="line">    document.body.removeChild(document.getElementById(<span class="string">'button'</span>));</span><br><span class="line">    // 此时，仍旧存在一个全局的 <span class="comment">#button 的引用</span></span><br><span class="line">    // elements 字典。button 元素仍旧在内存中，不能被 GC 回收。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>虽然我们用removeChild移除了button，但是还在elements对象里保存着#button的引用，换言之，DOM元素还在内存里面。</p>
-<h3 id="四、内存泄漏的识别方法"><a href="#四、内存泄漏的识别方法" class="headerlink" title="四、内存泄漏的识别方法"></a>四、内存泄漏的识别方法</h3><p>新版本的chrome在 performance 中查看：</p>
-<div style>
-<img src="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/bb.png" class title="图片标题">
-</div>
-<div style>
-<img src="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/cc.png" class title="图片标题">
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/26/HTTP%E5%8D%8F%E8%AE%AE%E3%80%90%E8%AF%A6%E8%A7%A3%E3%80%91/" alt="微信分享二维码"> -->
+    </div>
 </div>
 
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤:"></a>步骤:</h4><ul>
-<li>打开开发者工具 Performance</li>
-<li>勾选 Screenshots 和 memory</li>
-<li>左上角小圆点开始录制(record)</li>
-<li>停止录制</li>
-</ul>
-图中 Heap 对应的部分就可以看到内存在周期性的回落也可以看到垃圾回收的周期,如果垃圾回收之后的最低值(我们称为min),min在不断上涨,那么肯定是有较为严重的内存泄漏问题。
-
-<h4 id="避免内存泄漏的一些方式："><a href="#避免内存泄漏的一些方式：" class="headerlink" title="避免内存泄漏的一些方式："></a>避免内存泄漏的一些方式：</h4><ul>
-<li>减少不必要的全局变量，或者生命周期较长的对象，及时对无用的数据进行垃圾回收</li>
-<li>注意程序逻辑，避免“死循环”之类的</li>
-<li>避免创建过多的对象</li>
-</ul>
-总而言之需要遵循一条原则：<a>不用了的东西要及时归还</a>
-
-<h3 id="五、垃圾回收的使用场景优化"><a href="#五、垃圾回收的使用场景优化" class="headerlink" title="五、垃圾回收的使用场景优化"></a>五、垃圾回收的使用场景优化</h3><h4 id="1-数组array优化"><a href="#1-数组array优化" class="headerlink" title="1.数组array优化"></a>1.数组array优化</h4><p>将[]赋值给一个数组对象，是清空数组的捷径(例如： arr = [];),但是需要注意的是，这种方式又创建了一个新的空对象，并且将原来的数组对象变成了一小片内存垃圾！实际上，将数组长度赋值为0（arr.length = 0）也能达到清空数组的目的，并且同时能实现数组重用，减少内存垃圾的产生。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3, 4];</span><br><span class="line">console.log(&#39;浪里行舟&#39;);</span><br><span class="line">arr.length &#x3D; 0  &#x2F;&#x2F; 可以直接让数字清空，而且数组类型不变。</span><br><span class="line">&#x2F;&#x2F; arr &#x3D; []; 虽然让a变量成一个空数组,但是在堆上重新申请了一个空数组对象。</span><br></pre></td></tr></table></figure>
-<h4 id="2-对象尽量复用"><a href="#2-对象尽量复用" class="headerlink" title="2. 对象尽量复用"></a>2. 对象尽量复用</h4><p>对象尽量复用，尤其是在循环等地方出现创建新对象，能复用就复用。不用的对象，尽可能设置为null，尽快被垃圾回收掉。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var t &#x3D; &#123;&#125; &#x2F;&#x2F; 每次循环都会创建一个新对象。</span><br><span class="line">for (var i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">  &#x2F;&#x2F; var t &#x3D; &#123;&#125;;&#x2F;&#x2F; 每次循环都会创建一个新对象。</span><br><span class="line">  t.age &#x3D; 19</span><br><span class="line">  t.name &#x3D; &#39;123&#39;</span><br><span class="line">  t.index &#x3D; i</span><br><span class="line">  console.log(t)</span><br><span class="line">&#125;</span><br><span class="line">t &#x3D; null &#x2F;&#x2F;对象如果已经不用了，那就立即设置为null；等待垃圾回收。</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-在循环中的函数表达式，能复用最好放到循环外面。"><a href="#3-在循环中的函数表达式，能复用最好放到循环外面。" class="headerlink" title="3.在循环中的函数表达式，能复用最好放到循环外面。"></a>3.在循环中的函数表达式，能复用最好放到循环外面。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 在循环中最好也别使用函数表达式。</span><br><span class="line">for (var k &#x3D; 0; k &lt; 10; k++) &#123;</span><br><span class="line">  var t &#x3D; function(a) &#123;</span><br><span class="line">    &#x2F;&#x2F; 创建了10次  函数对象。</span><br><span class="line">    console.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  t(k)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 推荐用法</span><br><span class="line">function t(a) &#123;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">for (var k &#x3D; 0; k &lt; 10; k++) &#123;</span><br><span class="line">  t(k)</span><br><span class="line">&#125;</span><br><span class="line">t &#x3D; null</span><br></pre></td></tr></table></figure>
-<h1 id="原文地址：https-juejin-im-post-5cb33660e51d456e811d2687-heading-1"><a href="#原文地址：https-juejin-im-post-5cb33660e51d456e811d2687-heading-1" class="headerlink" title="原文地址：https://juejin.im/post/5cb33660e51d456e811d2687#heading-1"></a>原文地址：<a style="font-size:0.5em;">https://juejin.im/post/5cb33660e51d456e811d2687#heading-1</a></h1>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端基础点</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/05/JavaScript%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/">展开全文 >></a>
-    </p>
-    
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/21/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对象的深拷贝与浅拷贝的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -900,8 +399,14 @@ throttle
 
 
 
-  
-  
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -942,8 +447,8 @@ throttle
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

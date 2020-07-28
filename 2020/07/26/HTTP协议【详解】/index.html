@@ -18,7 +18,7 @@
 <meta property="og:description" content="一次完整的HTTP事务流程DNS域名解析&gt;发起TCP三次握手&gt;建立TCP链接后发起http请求&gt;服务器响应http请求，浏览器得到HTML代码&gt;浏览器解析HTML代码，并请求HTML代码中的资源&gt;浏览器对页面进行渲染呈现给用户&gt;连接结束 什么是HTTP无状态协议，如何解决HTTP无状态协议？无状态协议对于事物处理没有记忆能力，缺少状态意味着如果后续处理需要前面的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-26T00:28:59.000Z">
-<meta property="article:modified_time" content="2020-07-26T03:21:38.672Z">
+<meta property="article:modified_time" content="2020-07-28T15:33:56.816Z">
 <meta property="article:author" content="Mr Yan">
 <meta property="article:tag" content="前端基础点">
 <meta property="article:tag" content="JavaScript">
@@ -248,7 +248,7 @@
 <h3 id="常见的HTTP方法有那些？"><a href="#常见的HTTP方法有那些？" class="headerlink" title="常见的HTTP方法有那些？"></a>常见的HTTP方法有那些？</h3><p>GET：用于请求访问已经被URI（统一资源标识符）识别的资源，可以通关URI传参给服务器。<br>POST：用于传输信息给服务器，主要功能鱼GET方法类似，但一般推荐使用POST方式。<br>PUT：传输文件，报文主体中包含文件内容，保存到对应URI位置。<br>HEAD：获得报文首部，与GET方法类似，只要不返回报文主题，一般用于验证URI是否有效。<br>DELETE：删除文件，与PUT方法相反，删除对于URI位置的文件。<br>OPTIONS：查询相应URI支持的HTTP方法。</p>
 <h3 id="GET和POST方法的区别"><a href="#GET和POST方法的区别" class="headerlink" title="GET和POST方法的区别"></a>GET和POST方法的区别</h3><p>1.get重点是从服务器获取资源，post重点是向服务器发送数据。<br>2.get传输数据是通过URI请求，多个字节可以拼接，这个过程用户是可见的，post传输数据是通过Http<br>的post机制，将字段与对应值封存在请求体中发送给服务器，这个过程用户是不可见的；<br>3.get传输的数据量小，因为受URL长度限制，但效率较高，post可以传输大量数据，所以上传文件用post方式。<br>4.get安全性低，因为URL是可见的，可能会泄露私密信息，post较get安全性较高。<br>5.get方式只能支持ASCII字符，向服务器传的中文字符可能会乱码，post支持标准字符集，可以正确传递中文字符。</p>
 <h3 id="HTTPS工作原理"><a href="#HTTPS工作原理" class="headerlink" title="HTTPS工作原理"></a>HTTPS工作原理</h3><p>1.首先HTTP请求服务端生产证书，客户端对证书的有效性，合法性，域名是否与请求的域名一致，证书的公匙（RSA加密）等进行校验；<br>2.客户端如果校验通过后，就根据证书的公匙的有效，生产随机数，随机数使用公钥进行加密（RSA加密）;<br>3.消息体产生后，对它的摘要进行MD5（或者SHA1）算法加密，此时就得到了RSA签名;<br>4.发送给服务端，此时只有服务端（RSA私钥）能解密。<br>5.解密得到的随机数，再用AES加密，作为密钥（此时的密钥只有客户端和服务端知道）。</p>
-<h3 id="Http与Https的区别"><a href="#Http与Https的区别" class="headerlink" title="Http与Https的区别"></a>Http与Https的区别</h3><p>1.HTTP的url以http://开头，而HTTPS的url以http://开头<br>2.HTTP是不安全的超文本传输协议，信息室明文传输，二HTTPS是安全的<br>3.HTTP标准端口就是80，而HTTPS的标准端口是443<br>4.在OSI网络模型中，HTTP工作与应用层，而HTTPS的安全传输机制在传输层<br>5.HTTP无法加密，而HTTPS对传输的数据进行加密<br>6.HTTP无需证书，而HTTPS需要CA机构wosign颁发的SSL证书</p>
+<h3 id="Http与Https的区别"><a href="#Http与Https的区别" class="headerlink" title="Http与Https的区别"></a>Http与Https的区别</h3><p>1.HTTP的url以http://开头，而HTTPS的url以https://开头<br>2.HTTP是不安全的超文本传输协议，信息室明文传输，二HTTPS是安全的<br>3.HTTP标准端口就是80，而HTTPS的标准端口是443<br>4.在OSI网络模型中，HTTP工作与应用层，而HTTPS的安全传输机制在传输层<br>5.HTTP无法加密，而HTTPS对传输的数据进行加密<br>6.HTTP无需证书，而HTTPS需要CA机构wosign颁发的SSL证书</p>
 <h3 id="常见的HTTP相应状态码"><a href="#常见的HTTP相应状态码" class="headerlink" title="常见的HTTP相应状态码"></a>常见的HTTP相应状态码</h3><p>返回的状态<br>1xx：指示信息–表示请求已接收，继续处理<br>2xx：成功–表示请求已被成功接收、理解、接受<br>3xx：重定向–要完成请求必须进行更进一步的操作<br>4xx：客户端错误–请求有语法错误或请求无法实现<br>5xx：服务器端错误–服务器未能实现合法的请求</p>
 <p>200：请求被正常处理<br>204：请求被受理但没有资源可以返回<br>206：客户端只是请求资源的一部分，服务器只对请求的部分资源执行GET方法，相应报文中通过Content-Range指定范围的资源。<br>301：永久性重定向<br>302：临时重定向<br>303：与302状态码有相似功能，只是它希望客户端在请求一个URI的时候，能通过GET方法重定向到另一个URI上<br>304：发送附带条件的请求时，条件不满足时返回，与重定向无关<br>307：临时重定向，与302类似，只是强制要求使用POST方法<br>400：请求报文语法有误，服务器无法识别<br>401：请求需要认证<br>403：请求的对应资源禁止被访问<br>404：服务器无法找到对应资源<br>500：服务器内部错误<br>503：服务器正忙</p>
 <h3 id="前端优化方案"><a href="#前端优化方案" class="headerlink" title="前端优化方案"></a>前端优化方案</h3><p>减少请求数量：合并脚本和样式表，CSS Sprites，划分主域。<br>降低请求宽带：使用GZip，精简JavaScript，移除重复脚本，图像优化，尽可能减少DOM节点数。<br>缓存利用：使用CDN，使用外部的JavaScript和css，减少DNS查找。<br>页面结构：将样式表放在头部，将脚本放在底部，尽早刷新文档的输出。<br>代码校验：避免css表达式，避免重定向。</p>
